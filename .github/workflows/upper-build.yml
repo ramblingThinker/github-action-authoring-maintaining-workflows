@@ -29,3 +29,5 @@ jobs:
           ls -al
           go test
           ./upper foo the bar
+        working-directory: upper
+        name: go-build-and-test
