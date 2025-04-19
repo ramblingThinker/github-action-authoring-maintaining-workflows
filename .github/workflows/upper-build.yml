@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     name: go-build
     steps:
+      - run: ls -al
+      - uses: actions/checkout@v4
+      - run: ls -al
+
       - run: go version
       - uses: actions/setup-go@v5
         with:
           go-version: "1.22"
+
       - run: go version
-      - run: ls -al
-      - uses: actions/checkout@v4
-      - run: ls -al
