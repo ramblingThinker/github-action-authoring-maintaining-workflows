@@ -7,6 +7,11 @@ permissions:
   pull-requests: write
 
 jobs:
+  log-the-event-payload:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "comment body ${{ github.event.comment.body }}"
+      - run: echo "${{ toJson(github.event) }}"
   chat-to-openai:
     if: contains(github.event.comment.body, '/chat')
     runs-on: ubuntu-latest
