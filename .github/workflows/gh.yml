@@ -15,6 +15,7 @@ jobs:
     steps:
       - run: env
       - run: gh --version
+      - uses: actions/checkout@v4
       - run: gh auth status
       - run: gh repo list
       - run: gh issue list
