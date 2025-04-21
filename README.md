@@ -1,5 +1,7 @@
 # Authoring and Maintaining GitHub Actions Workflows
 
+[![upper-cross](https://github.com/mrmyothet/github-action-authoring-maintaining-workflows/actions/workflows/upper-cross.yml/badge.svg)](https://github.com/mrmyothet/github-action-authoring-maintaining-workflows/actions/workflows/upper-cross.yml)
+
 #### Using the gh CLI to View Runs and Workflows
 
 ```bash
