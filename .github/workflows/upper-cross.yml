@@ -30,5 +30,6 @@ jobs:
         with:
           files: ./upper/bin/upper*
           tag_name: ${{ github.ref_name }}
+          body: "Binaries for upper (go) command line tool. "
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
