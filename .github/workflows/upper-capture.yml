@@ -20,3 +20,7 @@ jobs:
       - run: go build
       - run: ls
       - run: go test -v
+      - uses: actions/upload-artifact@v3
+        with:
+          name: go-build-output
+          path: ./upper/upper
