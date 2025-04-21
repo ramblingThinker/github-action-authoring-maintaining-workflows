@@ -33,3 +33,4 @@ jobs:
           body: "Binaries for upper (go) command line tool. "
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: startsWith(github.ref_name, 'refs/tags/')
