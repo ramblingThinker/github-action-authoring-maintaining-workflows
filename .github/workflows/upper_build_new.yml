@@ -1,0 +1,26 @@
+name: upper build
+on:
+  push:
+    paths:
+      - ".github/workflows/upper_build_new.yml"
+      - "./upper"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    name: go-version
+    steps:
+      - run: go version
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - run: go version
+      - run: |
+          ls
+          go build
+          ls
+          go test
+          ./upper foo the bar
+        working-directory: upper
