@@ -2,7 +2,7 @@ name: Auto-Close Issues with "wrong" in Title
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited]
 
 permissions:
   issues: write
