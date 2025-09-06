@@ -1,0 +1,28 @@
+name: Auto-Close Issues with "wrong" in Title
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  close-wrong-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check and Close Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          if echo "$ISSUE_TITLE" | grep -i "wrong"; then
+            echo "Closing issue #$ISSUE_NUMBER with title: $ISSUE_TITLE"
+            gh issue close "$ISSUE_NUMBER" \
+              --repo "$REPO" \
+              --comment "This issue was automatically closed because its title contains the word 'wrong'."
+          else
+            echo "Issue title does not contain 'wrong'. No action taken."
+          fi
